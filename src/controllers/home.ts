@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express'
 import HelloWorld from '../models/HelloWorld'
+import Notes from '../models/Notes'
 const router = Router()
 
 router.get('/', (req: Request, res: Response) => {

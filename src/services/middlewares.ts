@@ -1,4 +1,7 @@
 import * as log4js from 'log4js'
+import * as fs from 'fs'
+import { get } from 'http'
+
 const logger = log4js.getLogger('Middleware')
 
 /**

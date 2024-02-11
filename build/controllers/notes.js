@@ -36,7 +36,8 @@ router.post('/', (req, res) =>
     const record = req.body
     const obj = {
       id: record.id,
-      name: record.name
+      title: record.title,
+      body: record.body
     }
     const dataResponse = yield Notes_1.default.addData(obj)
     res.send({ message: obj })
@@ -52,6 +53,18 @@ router.get('/:id', (req, res) =>
   __awaiter(this, void 0, void 0, function*() {
     const dataResponse = yield Notes_1.default.getDataId(req.params.id)
     res.send({ message: dataResponse })
+  })
+)
+router.put('/', (req, res) =>
+  __awaiter(this, void 0, void 0, function*() {
+    const record = req.body
+    const obj = {
+      id: record.id,
+      title: record.title,
+      body: record.body
+    }
+    const dataResponse = yield Notes_1.default.updateData(obj)
+    res.send({ message: obj })
   })
 )
 exports.default = router

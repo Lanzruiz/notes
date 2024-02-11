@@ -78,5 +78,28 @@ Notes.getDataId = id =>
       console.error(err)
     }
   })
+Notes.updateData = updateData => {
+  return new Promise((resolve, reject) => {
+    if (updateData) {
+      const data = fs.readFileSync('./dataArray.json', {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+      const obj = JSON.parse(data)
+      const newArr = obj.map(obj => {
+        if (obj.id == updateData.id) {
+          return Object.assign({}, obj, { updateData })
+        }
+        return obj
+      })
+      fs.writeFile('./dataArray.json', JSON.stringify(newArr), err => {
+        if (err) throw err
+      })
+      resolve()
+    } else {
+      reject(new Error('Invalid data'))
+    }
+  })
+}
 exports.default = Notes
 //# sourceMappingURL=Notes.js.map

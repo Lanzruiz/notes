@@ -1,4 +1,5 @@
 interface Data {
   id: number
-  name: string
+  title: string
+  body: string
 }

@@ -20,13 +20,6 @@ Already configured:
 - `node` (using v8)
 - `yarn` (faster than npm)
 
-## Environment variables
-- `EXAMPLE_VAR` optional - some app secret
-
-Environment variables can be set in the `.env` file (rename the `.env.example` to `.env`) or in the operative system vars.
-
-Variables in the `.env` file do not override the system variables if already exists with the same name.
-
 ## Instructions to develop
 - `yarn install` - installs the dependencies
 - `yarn start` - watch's `.ts` files and compiles to `build` folder then the server is reloaded at `localhost:3000`
@@ -35,12 +28,7 @@ Variables in the `.env` file do not override the system variables if already exi
 - `yarn serve` - starts the app (`node build/bin/server.js`)
 - `yarn prettier` - runs prettier to prettify the code (also runs before each commit)
 
-## Docker instructions
-- `docker build -t myapi .`
-- `docker run -d -p 80:3000 myapi`
+## API End Points
 
-Passing environment variables:
-- `docker run -d -p 80:3000 -e "MYVAR=apikey" myapi`
-
-## License
-MIT
+- Post `/notes/` - add notes 
+    Request Body: type: json

@@ -11,10 +11,6 @@ Custom API description here.
 Already configured:
 
 - `typescript`: compiles to a `build` folder and has a task to watch and compile, comes with some @types in the `package.json`
-- `jest`: already configured to run and debug typescript tests, with a route test example (using `supertest`)
-- `log4js`: logs app and express requests to stdout, easily configured to log to a file
-- `prettier`: forget about indentation, runs before a commit
-- `docker`: already configured to build and run the app
 
 ## Requirements
 - `node` (using v8)
@@ -30,11 +26,9 @@ Already configured:
 
 ## API End Points
 
-- Post `/notes/` - add notes 
-    Headers: Content-Type: application/json
-    Request Body: 
-         type: json
-         id: number
-         title: string
-         body: sting
+- POST `/notes/` - add notes 
+- GET  `/notes/` - fetch all data notes
+- GET  `/notes/:id` - fetch specific notes by id
+- UPDATE `/notes/` - update data in specific id
+- DELETE `/notes/:id` - delete the specific note
          

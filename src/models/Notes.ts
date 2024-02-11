@@ -81,8 +81,12 @@ export default class Notes {
         })
         const obj = JSON.parse(data)
         const newArr = obj.map(obj => {
-          if (obj.id == updateData.id) {
-            return { ...obj, updateData }
+          if (obj.id === updateData.id) {
+            return {
+              id: updateData.id,
+              title: updateData.title,
+              body: updateData.body
+            }
           }
           return obj
         })
@@ -115,7 +119,6 @@ export default class Notes {
             if (err) throw err
           })
         }
-
         resolve()
       } else {
         reject(new Error('Invalid data'))

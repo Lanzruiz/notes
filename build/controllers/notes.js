@@ -55,11 +55,11 @@ router.get('/:id', (req, res) =>
     res.send({ message: dataResponse })
   })
 )
-router.put('/', (req, res) =>
+router.put('/:id', (req, res) =>
   __awaiter(this, void 0, void 0, function*() {
     const record = req.body
     const obj = {
-      id: record.id,
+      id: parseInt(req.params.id),
       title: record.title,
       body: record.body
     }
@@ -67,14 +67,14 @@ router.put('/', (req, res) =>
     res.send({ message: obj })
   })
 )
-router.delete('/', (req, res) =>
+router.delete('/:id', (req, res) =>
   __awaiter(this, void 0, void 0, function*() {
     const record = req.body
     const obj = {
-      id: record.id
+      id: parseInt(req.params.id)
     }
     const dataResponse = yield Notes_1.default.deleteData(obj)
-    res.send({ message: obj })
+    res.send({ message: dataResponse })
   })
 )
 exports.default = router

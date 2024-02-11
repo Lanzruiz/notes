@@ -87,8 +87,12 @@ Notes.updateData = updateData => {
       })
       const obj = JSON.parse(data)
       const newArr = obj.map(obj => {
-        if (obj.id == updateData.id) {
-          return Object.assign({}, obj, { updateData })
+        if (obj.id === updateData.id) {
+          return {
+            id: updateData.id,
+            title: updateData.title,
+            body: updateData.body
+          }
         }
         return obj
       })

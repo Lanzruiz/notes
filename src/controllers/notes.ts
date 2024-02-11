@@ -33,10 +33,10 @@ router.get('/:id', async (req: Request, res: Response) => {
   res.send({ message: dataResponse })
 })
 
-router.put('/', async (req: Request, res: Response) => {
+router.put('/:id', async (req: Request, res: Response) => {
   const record: Record = req.body
   const obj: Record = {
-    id: record.id,
+    id: parseInt(req.params.id),
     title: record.title,
     body: record.body
   }
@@ -44,13 +44,16 @@ router.put('/', async (req: Request, res: Response) => {
   res.send({ message: obj })
 })
 
-router.delete('/', async (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
   const record: Delete = req.body
+
   const obj: Delete = {
-    id: record.id
+    id: parseInt(req.params.id)
   }
+
   const dataResponse = await Notes.deleteData(obj)
-  res.send({ message: obj })
+
+  res.send({ message: dataResponse })
 })
 
 export default router

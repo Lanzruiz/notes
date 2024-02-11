@@ -29,6 +29,6 @@ Already configured:
 - POST `/notes/` - add notes 
 - GET  `/notes/` - fetch all data notes
 - GET  `/notes/:id` - fetch specific notes by id
-- UPDATE `/notes/` - update data in specific id
+- UPDATE `/notes/:id` - update data in specific id
 - DELETE `/notes/:id` - delete the specific note
          

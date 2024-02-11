@@ -1,7 +1,6 @@
 ### Custom ###
 .idea/
 jest-cache/
-build/
 
 ### macOS ###
 *.DS_Store

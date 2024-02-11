@@ -4,7 +4,7 @@
 [![David](https://img.shields.io/david/iamfreee/typescript-api-template.svg)]()
 
 
-# API Template using Typescript
+# Notes API Typescript
 
 Custom API description here.
 

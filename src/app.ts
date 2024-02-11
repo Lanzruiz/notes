@@ -10,7 +10,6 @@ import {
 /**
  * Controllers (route handlers)
  */
-import homeController from './controllers/home'
 import noteController from './controllers/notes'
 
 /**
@@ -35,7 +34,6 @@ app.use(utilsHandler) // adds some useful functions to req and res objects
 /**
  * Primary app routes
  */
-app.use('/', homeController)
 app.use('/notes', noteController)
 
 /**

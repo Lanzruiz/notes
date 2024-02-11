@@ -31,4 +31,10 @@ Already configured:
 ## API End Points
 
 - Post `/notes/` - add notes 
-    Request Body: type: json
+    Headers: Content-Type: application/json
+    Request Body: 
+         type: json
+         id: number
+         title: string
+         body: sting
+         

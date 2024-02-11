@@ -3,3 +3,7 @@ interface Data {
   title: string
   body: string
 }
+
+interface Delete {
+  id: number
+}

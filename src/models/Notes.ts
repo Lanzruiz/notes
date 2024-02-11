@@ -11,6 +11,10 @@ interface DataObject {
   body: string
 }
 
+interface Delete {
+  id: number
+}
+
 let dataArray: Data[] = []
 
 export default class Notes {
@@ -85,6 +89,33 @@ export default class Notes {
         fs.writeFile('./dataArray.json', JSON.stringify(newArr), err => {
           if (err) throw err
         })
+        resolve()
+      } else {
+        reject(new Error('Invalid data'))
+      }
+    })
+  }
+
+  static deleteData = (deleteData: Delete): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      if (deleteData) {
+        const data = fs.readFileSync('./dataArray.json', {
+          encoding: 'utf8',
+          flag: 'r'
+        })
+
+        const obj = JSON.parse(data)
+
+        const objWithIdIndex = obj.findIndex(obj => obj.id === deleteData.id)
+
+        if (objWithIdIndex > -1) {
+          obj.splice(objWithIdIndex, 1)
+
+          fs.writeFile('./dataArray.json', JSON.stringify(obj), err => {
+            if (err) throw err
+          })
+        }
+
         resolve()
       } else {
         reject(new Error('Invalid data'))

@@ -8,6 +8,10 @@ interface Record {
   body: string
 }
 
+interface Delete {
+  id: number
+}
+
 router.post('/', async (req: Request, res: Response) => {
   const record: Record = req.body
   const obj: Record = {
@@ -37,6 +41,15 @@ router.put('/', async (req: Request, res: Response) => {
     body: record.body
   }
   const dataResponse = await Notes.updateData(obj)
+  res.send({ message: obj })
+})
+
+router.delete('/', async (req: Request, res: Response) => {
+  const record: Delete = req.body
+  const obj: Delete = {
+    id: record.id
+  }
+  const dataResponse = await Notes.deleteData(obj)
   res.send({ message: obj })
 })
 

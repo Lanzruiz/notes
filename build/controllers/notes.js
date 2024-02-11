@@ -67,5 +67,15 @@ router.put('/', (req, res) =>
     res.send({ message: obj })
   })
 )
+router.delete('/', (req, res) =>
+  __awaiter(this, void 0, void 0, function*() {
+    const record = req.body
+    const obj = {
+      id: record.id
+    }
+    const dataResponse = yield Notes_1.default.deleteData(obj)
+    res.send({ message: obj })
+  })
+)
 exports.default = router
 //# sourceMappingURL=notes.js.map

@@ -48,5 +48,11 @@ router.get('/', (req, res) =>
     res.send({ message: dataResponse })
   })
 )
+router.get('/:id', (req, res) =>
+  __awaiter(this, void 0, void 0, function*() {
+    const dataResponse = yield Notes_1.default.getDataId(req.params.id)
+    res.send({ message: dataResponse })
+  })
+)
 exports.default = router
 //# sourceMappingURL=notes.js.map

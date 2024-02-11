@@ -22,4 +22,9 @@ router.get('/', async (req: Request, res: Response) => {
   res.send({ message: dataResponse })
 })
 
+router.get('/:id', async (req: Request, res: Response) => {
+  const dataResponse = await Notes.getDataId(req.params.id)
+  res.send({ message: dataResponse })
+})
+
 export default router

@@ -61,5 +61,22 @@ Notes.getData = () =>
       console.error(err)
     }
   })
+Notes.getDataId = id =>
+  __awaiter(this, void 0, void 0, function*() {
+    try {
+      const data = fs.readFileSync('./dataArray.json', {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+      const obj = JSON.parse(data)
+      let entry = obj.filter(function(item) {
+        return item.id == id
+      })[0]
+      console.log(entry)
+      return entry
+    } catch (err) {
+      console.error(err)
+    }
+  })
 exports.default = Notes
 //# sourceMappingURL=Notes.js.map

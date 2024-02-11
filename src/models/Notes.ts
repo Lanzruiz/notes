@@ -45,4 +45,25 @@ export default class Notes {
       console.error(err)
     }
   }
+
+  static getDataId = async (id: number): Promise<void> => {
+    try {
+      const data = fs.readFileSync('./dataArray.json', {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+
+      const obj = JSON.parse(data)
+
+      let entry = obj.filter(function(item) {
+        return item.id == id
+      })[0]
+
+      console.log(entry)
+
+      return entry
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }
